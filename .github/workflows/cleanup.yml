@@ -1,0 +1,44 @@
+name: Cleanup Repositories
+
+on:
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: List repositories
+        id: list_repos
+        run: |
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/user/repos?per_page=100 > repos.json
+
+      - name: Filter repositories not updated for more than 3 months
+        id: filter_repos
+        run: |
+          python -c "
+import json
+from datetime import datetime, timedelta
+
+with open('repos.json') as f:
+    repos = json.load(f)
+
+three_months_ago = datetime.now() - timedelta(days=90)
+stale_repos = [repo['name'] for repo in repos if datetime.strptime(repo['updated_at'], '%Y-%m-%dT%H:%M:%SZ') < three_months_ago]
+
+with open('stale_repos.txt', 'w') as f:
+    for repo in stale_repos:
+        f.write(f'{repo}\n')
+          "
+
+      - name: Delete stale repositories
+        run: |
+          while read repo; do
+            curl -X DELETE -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Accept: application/vnd.github.v3+json" \
+                 https://api.github.com/repos/${{ github.repository_owner }}/$repo
+          done < stale_repos.txt
