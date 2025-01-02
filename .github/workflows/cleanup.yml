@@ -19,21 +19,12 @@ jobs:
 
       - name: Filter repositories not updated for more than 3 months
         id: filter_repos
+        shell: pwsh
         run: |
-          python -c "
-import json
-from datetime import datetime, timedelta
-
-with open('repos.json') as f:
-    repos = json.load(f)
-
-three_months_ago = datetime.now() - timedelta(days=90)
-stale_repos = [repo['name'] for repo in repos if datetime.strptime(repo['updated_at'], '%Y-%m-%dT%H:%M:%SZ') < three_months_ago]
-
-with open('stale_repos.txt', 'w') as f:
-    for repo in stale_repos:
-        f.write(f'{repo}\n')
-          "
+          $repos = Get-Content repos.json | ConvertFrom-Json
+          $threeMonthsAgo = (Get-Date).AddMonths(-3)
+          $staleRepos = $repos | Where-Object { [datetime]::ParseExact($_.updated_at, 'yyyy-MM-ddTHH:mm:ssZ', $null) -lt $threeMonthsAgo }
+          $staleRepos | ForEach-Object { $_.name } | Set-Content stale_repos.txt
 
       - name: Delete stale repositories
         run: |
