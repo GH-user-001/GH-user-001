@@ -2,7 +2,7 @@
 This repository is for designing solutions for an enterprise with developers across the world. It contains various projects and code samples related to the owner's tech stack and learning journey.
 
 # 💫 About Me:
-🔭 I’m currently working on Designing solutions for an Enterprise with developers across the world<br><br>🌱 I’m currently learning Math and Datascience<br><br>💬 Ask me about anything Tech - 💻 💾 🎮<br><br>📫 How to reach me: Rakeshkrishnan01@gmail.com<br><br>⚡ Fun fact: I love learning about bugs 🪲 both in nature and in tech 
+🔭 I’m currently working on Designing solutions for an Enterprise with developers across the world (Legacy code transformation, DevSecOPs Transistion both onprem and cloud, AI-Assisted coding tools)<br><br>🌱 Researching on AI and Math<br><br>💬 Ask me about anything Tech - 💻 💾 🎮<br><br>📫 How to reach me: Rakeshkrishnan01@gmail.com<br><br>⚡ Fun fact: I love learning about bugs 🪲 both in nature and in tech 
 
 
 ## 🌐 Blog:
