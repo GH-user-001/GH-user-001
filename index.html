@@ -17,7 +17,7 @@
             min-height: 100vh;
             padding: 20px;
             box-sizing: border-box;
-            /* Reduced text-shadow for a more subtle glow */
+            /* Default text-shadow for a subtle glow on most text */
             text-shadow: 0 0 3px #00ff00, 0 0 5px rgba(0, 255, 0, 0.3);
         }
 
@@ -25,7 +25,7 @@
             width: 100%;
             max-width: 1000px; /* Max width for the portfolio content */
             border: 2px solid #00ff00; /* Green border */
-            box-shadow: 0 0 15px #00ff00; 
+            box-shadow: 0 0 15px #00ff00;
             padding: 10px; /* Padding inside the main container */
             display: grid;
             grid-template-areas:
@@ -36,6 +36,7 @@
             grid-template-rows: auto auto auto; /* Rows for header, skillset, portfolio */
             gap: 15px; /* Gap between grid items */
             min-height: 80vh; /* Minimum height for the container */
+            position: relative; /* Needed for absolute positioning of footer if placed inside */
         }
 
         .header {
@@ -46,6 +47,8 @@
             font-size: 1.8em; /* Larger font for name */
             letter-spacing: 3px;
             min-height: 1.5em; /* Ensure space for text during typing */
+            /* Reduced text-shadow specifically for the header */
+            text-shadow: 0 0 2px #00ff00; /* Slightly less intense glow */
         }
 
         .portfolio-section, .skillset-section {
@@ -57,7 +60,7 @@
             justify-content: flex-start; /* Align content to top for typing */
             min-height: 150px; /* Ensure space during typing */
         }
-        
+
         .portfolio-section {
             grid-area: portfolio;
         }
@@ -87,9 +90,9 @@
         }
 
         ul {
-            list-style-type: none; 
+            list-style-type: none;
             padding: 0;
-            text-align: left; 
+            text-align: left;
             width: 80%; /* Give ul some width for alignment */
             margin-top: 10px;
         }
@@ -101,7 +104,7 @@
         }
 
         li::before {
-            content: "> "; 
+            content: "> ";
             color: #00ff00;
         }
 
@@ -114,6 +117,20 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
+
+        .page-footer {
+            position: fixed; /* Keep it fixed to the viewport */
+            bottom: 20px; /* Distance from the bottom */
+            left: 50%; /* Position the left edge at the horizontal center */
+            transform: translateX(-50%); /* Shift back by half its width to truly center */
+            font-size: 0.6em; /* Smaller font size */
+            color: #00ff00; /* Green text color */
+            text-shadow: 0 0 3px #00ff00; /* Subtle glow */
+            font-family: 'Press Start 2P', cursive; /* Apply the retro font */
+            z-index: 10; /* Ensure it's above other content */
+            white-space: nowrap; /* Prevent wrapping on small screens */
+        }
+
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -128,6 +145,13 @@
             .section-title { font-size: 1em; }
             .content-text, .portfolio-section .content-text, li { font-size: 0.8em; }
             ul { width: 90%;}
+            .page-footer {
+                bottom: 10px;
+                font-size: 0.5em;
+                /* Centering properties remain the same */
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
 
         @media (max-width: 480px) {
@@ -135,6 +159,13 @@
             .portfolio-section, .skillset-section { padding: 15px; }
             .content-text, .portfolio-section .content-text, li { font-size: 0.7em; }
             ul { width: 95%;}
+             .page-footer {
+                bottom: 5px;
+                font-size: 0.4em;
+                 /* Centering properties remain the same */
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
@@ -154,7 +185,7 @@
                 <li data-original-text="Infrastructure as Code (Terraform)"></li>
                 <li data-original-text="Python, PowerShell & Bash Scripting"></li>
                 <li data-original-text="Monitoring & Logging (Splunk, Prometheus, Grafana)"></li>
-                <li data-original-text="Data Analytics (SQL, PowerBi & google looker studio )"></li>
+                <li data-original-text="Data Analytics (SQL, PowerBi & google looker studio)"></li>
             </ul>
         </main>
 
@@ -167,6 +198,10 @@
                 <li data-original-text="Learning with Diagrams"></li>
             </ul>
         </aside>
+    </div>
+
+    <div class="page-footer">
+        rakeshkrishnan01@gmail.com
     </div>
 
     <script>
@@ -203,7 +238,7 @@
                 }
                 await delay(charSpeed);
             }
-            
+
             // Remove the cursor after typing is complete for this element
             if (cursorSpan.parentNode === targetElement) {
                 targetElement.removeChild(cursorSpan);
@@ -262,5 +297,6 @@
         window.onload = function() {
             startTypingAnimation();
         };
-    </script></body>
+    </script>
+</body>
 </html>
