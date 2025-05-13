@@ -147,23 +147,24 @@
             <h2 id="skillset-title-text" class="section-title" data-original-text="Skill Set"></h2>
             <p id="skillset-loading-text" class="content-text" data-original-text="Loading expertise modules..."></p>
             <ul id="skillset-list">
-                <li data-original-text="DevOps Engineering"></li>
+                <li data-original-text="DevOps & Release Engineering"></li>
                 <li data-original-text="Cloud Architecture (AWS, Azure)"></li>
-                <li data-original-text="CI/CD Pipelines (Jenkins, GitLab)"></li>
+                <li data-original-text="CI/CD Pipelines (Azure DevOps, GitHub, GitLab)"></li>
                 <li data-original-text="Containerization (Docker, Kubernetes)"></li>
                 <li data-original-text="Infrastructure as Code (Terraform)"></li>
-                <li data-original-text="Python & Bash Scripting"></li>
-                <li data-original-text="Monitoring & Logging (Prometheus, ELK)"></li>
+                <li data-original-text="Python, PowerShell & Bash Scripting"></li>
+                <li data-original-text="Monitoring & Logging (Splunk, Prometheus, Grafana)"></li>
+                <li data-original-text="Data Analytics (SQL, PowerBi & google looker studio )"></li>
             </ul>
         </main>
 
         <aside class="portfolio-section">
             <h2 id="portfolio-title-text" class="section-title" data-original-text="Portfolio"></h2>
-            <p id="portfolio-desc-text" class="content-text" data-original-text="not in your\nhands not in\nyour head"></p>
+            <p id="portfolio-desc-text" class="content-text" data-original-text="coming up..."></p>
             <ul id="portfolio-list">
-                <li data-original-text="Project Alpha"></li>
-                <li data-original-text="Retro Arcade Game"></li>
-                <li data-original-text="AI Chatbot Interface"></li>
+                <li data-original-text="Git Game"></li>
+                <li data-original-text="Master of Prompts"></li>
+                <li data-original-text="Learning with Diagrams"></li>
             </ul>
         </aside>
     </div>
@@ -184,8 +185,6 @@
                 await delay(initialDelay);
             }
 
-            // Clear the element for typing, but preserve its ID and classes if it's the target itself
-            // For elements like <li> or <p> that have data-original-text, we type into them directly.
             targetElement.innerHTML = ''; // Clear previous content
 
             const contentSpan = document.createElement('span'); // Holds the typed text
@@ -194,7 +193,7 @@
             const cursorSpan = document.createElement('span');
             cursorSpan.className = 'blinking-cursor';
             cursorSpan.textContent = '_';
-            targetElement.appendChild(cursorSpan); // Cursor always at the end of the targetElement
+            targetElement.appendChild(cursorSpan); // Add cursor for typing
 
             for (let i = 0; i < textToType.length; i++) {
                 if (textToType[i] === '\n') {
@@ -204,7 +203,11 @@
                 }
                 await delay(charSpeed);
             }
-            // Cursor remains blinking at the end.
+            
+            // Remove the cursor after typing is complete for this element
+            if (cursorSpan.parentNode === targetElement) {
+                targetElement.removeChild(cursorSpan);
+            }
         }
 
         // Main function to orchestrate all typing animations sequentially
@@ -212,12 +215,13 @@
             const defaultCharSpeed = 70; // Default speed for most text
             const listItemCharSpeed = 45; // Faster speed for list items
             const interElementDelay = 100; // Delay before starting to type a new element
+            const finalCursorDelay = 500; // Time to show final cursor before removing all
 
             console.log("Initializing typing sequence...");
 
             // Header
             const headerEl = document.getElementById('main-header-text');
-            await typeTextIntoElement(headerEl, "RAKESH KRISHNAN", defaultCharSpeed, 200); // Initial longer delay
+            await typeTextIntoElement(headerEl, "RAKESH KRISHNAN", defaultCharSpeed, 200);
 
             // Skillset Title
             const skillsetTitleEl = document.getElementById('skillset-title-text');
@@ -230,7 +234,7 @@
             // Skillset List Items
             const skillsetItems = document.querySelectorAll('#skillset-list li');
             for (const item of skillsetItems) {
-                await typeTextIntoElement(item, item.dataset.originalText, listItemCharSpeed, 50); // Shorter delay for list items
+                await typeTextIntoElement(item, item.dataset.originalText, listItemCharSpeed, 50);
             }
 
             // Portfolio Title
@@ -247,15 +251,16 @@
                 await typeTextIntoElement(item, item.dataset.originalText, listItemCharSpeed, 50);
             }
 
+            // Optional: Add a final blinking cursor at the very end of all animations if desired
+            // For example, you could append it to the last typed element or a dedicated final prompt element.
+            // If you want NO cursors at all after everything, this is complete.
+
             console.log("All typing animations complete. System Ready.");
         }
 
         // Start the animation when the window is loaded
         window.onload = function() {
-            // The original console log is now part of the startTypingAnimation function
             startTypingAnimation();
         };
-    </script>
-</body>
+    </script></body>
 </html>
-
