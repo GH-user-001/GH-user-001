@@ -28,7 +28,6 @@
             box-shadow: 0 0 15px #00ff00; 
             padding: 10px; /* Padding inside the main container */
             display: grid;
-            /* Updated grid layout: Header, then Skillset, then Portfolio */
             grid-template-areas:
                 "header"
                 "skillset"
@@ -46,153 +45,217 @@
             border-bottom: 2px solid #00ff00;
             font-size: 1.8em; /* Larger font for name */
             letter-spacing: 3px;
+            min-height: 1.5em; /* Ensure space for text during typing */
         }
 
-        .portfolio-section {
-            grid-area: portfolio; /* This section will now be at the bottom of the main content */
+        .portfolio-section, .skillset-section {
             border: 2px solid #00ff00;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align content to top for typing */
+            min-height: 150px; /* Ensure space during typing */
+        }
+        
+        .portfolio-section {
+            grid-area: portfolio;
         }
 
         .skillset-section {
-            grid-area: skillset; /* This section will be the main content area below the header */
-            border: 2px solid #00ff00;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            grid-area: skillset;
         }
-
-        /* Playlist section styles are removed as the section is deleted */
 
         .section-title {
             font-size: 1.2em;
             margin-bottom: 15px;
             text-decoration: underline;
             text-underline-offset: 4px;
+            min-height: 1.5em; /* Ensure space for text */
         }
 
         .content-text {
             font-size: 0.8em;
             line-height: 1.6;
             text-align: center;
+            min-height: 2em; /* Ensure space for text */
         }
 
         .portfolio-section .content-text {
-            font-size: 0.7em; /* Slightly smaller for this section */
+            font-size: 0.7em;
+             min-height: 3em; /* Ensure space for multi-line text */
         }
 
         ul {
-            list-style-type: none; /* Remove default list styling */
+            list-style-type: none; 
             padding: 0;
-            text-align: left; /* Align list items to the left for readability */
+            text-align: left; 
+            width: 80%; /* Give ul some width for alignment */
+            margin-top: 10px;
         }
 
         li {
             margin-bottom: 8px;
             font-size: 0.9em;
+            min-height: 1.2em; /* Ensure space for li text */
         }
 
         li::before {
-            content: "> "; /* Retro list item indicator */
+            content: "> "; 
             color: #00ff00;
         }
 
-        /* Blinking cursor effect */
         .blinking-cursor {
             animation: blink 1s step-end infinite;
+            font-weight: bold; /* Make cursor more visible */
         }
 
         @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
-                /* The grid areas are already set to stack correctly for mobile,
-                   just ensuring the playlist area is not referenced. */
                 grid-template-areas:
                     "header"
                     "skillset"
                     "portfolio";
                 max-width: 95%;
             }
-            .header {
-                font-size: 1.5em;
-            }
-            .section-title {
-                font-size: 1em;
-            }
-            .content-text, .portfolio-section .content-text, li {
-                font-size: 0.8em;
-            }
+            .header { font-size: 1.5em; }
+            .section-title { font-size: 1em; }
+            .content-text, .portfolio-section .content-text, li { font-size: 0.8em; }
+            ul { width: 90%;}
         }
 
         @media (max-width: 480px) {
-            .header {
-                font-size: 1.2em;
-                padding: 15px;
-            }
-            .portfolio-section, .skillset-section { /* Removed playlist-section */
-                padding: 15px;
-            }
-             .content-text, .portfolio-section .content-text, li {
-                font-size: 0.7em;
-            }
+            .header { font-size: 1.2em; padding: 15px; }
+            .portfolio-section, .skillset-section { padding: 15px; }
+            .content-text, .portfolio-section .content-text, li { font-size: 0.7em; }
+            ul { width: 95%;}
         }
-
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            RAKESH KRISHNAN<span class="blinking-cursor">_</span>
-        </header>
+            <span id="main-header-text"></span> </header>
 
         <main class="skillset-section">
-            <h2 class="section-title">Skill Set</h2>
-            <p class="content-text">Loading expertise modules...</p>
-            <ul>
-                <li>DevOps Engineering</li>
-                <li>Cloud Architecture (AWS, Azure)</li>
-                <li>CI/CD Pipelines (Azure DeVops, GitHub Enterprise, Jenkins, GitLab)</li>
-                <li>Containerization (Docker, Kubernetes)</li>
-                <li>Infrastructure as Code (Terraform)</li>
-                <li>Python, Bash & SQL Scripting</li>
-                <li>Monitoring & Logging (Splunk, Prometheus)</li>
+            <h2 id="skillset-title-text" class="section-title" data-original-text="Skill Set"></h2>
+            <p id="skillset-loading-text" class="content-text" data-original-text="Loading expertise modules..."></p>
+            <ul id="skillset-list">
+                <li data-original-text="DevOps Engineering"></li>
+                <li data-original-text="Cloud Architecture (AWS, Azure)"></li>
+                <li data-original-text="CI/CD Pipelines (Jenkins, GitLab)"></li>
+                <li data-original-text="Containerization (Docker, Kubernetes)"></li>
+                <li data-original-text="Infrastructure as Code (Terraform)"></li>
+                <li data-original-text="Python & Bash Scripting"></li>
+                <li data-original-text="Monitoring & Logging (Prometheus, ELK)"></li>
             </ul>
         </main>
 
         <aside class="portfolio-section">
-            <h2 class="section-title">Portfolio</h2>
-            <p class="content-text">
-                not in your hands not in your head
-            </p>
-            <br>
-            <ul>
-                <li>Project Git Arcade</li>
-                <li>Daily Study Personal Website</li>
-                <li>Visual Learning Interface</li>
+            <h2 id="portfolio-title-text" class="section-title" data-original-text="Portfolio"></h2>
+            <p id="portfolio-desc-text" class="content-text" data-original-text="not in your\nhands not in\nyour head"></p>
+            <ul id="portfolio-list">
+                <li data-original-text="Project Alpha"></li>
+                <li data-original-text="Retro Arcade Game"></li>
+                <li data-original-text="AI Chatbot Interface"></li>
             </ul>
         </aside>
-
-        </div>
+    </div>
 
     <script>
-        // Simple script to add a typing effect or other retro interactions if desired.
-        // For now, keeping it simple as per the static design.
-        console.log("Retro Portfolio Initialized. System Ready.");
+        // Helper function to create a delay
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
 
-        // You could add more JavaScript here for interactive elements,
-        // or adding more complex text animations.
+        // Function to type text into an element, character by character
+        async function typeTextIntoElement(targetElement, textToType, charSpeed = 75, initialDelay = 0) {
+            if (!targetElement) {
+                console.error("Target element not found for typing.");
+                return;
+            }
+            if (initialDelay > 0) {
+                await delay(initialDelay);
+            }
+
+            // Clear the element for typing, but preserve its ID and classes if it's the target itself
+            // For elements like <li> or <p> that have data-original-text, we type into them directly.
+            targetElement.innerHTML = ''; // Clear previous content
+
+            const contentSpan = document.createElement('span'); // Holds the typed text
+            targetElement.appendChild(contentSpan);
+
+            const cursorSpan = document.createElement('span');
+            cursorSpan.className = 'blinking-cursor';
+            cursorSpan.textContent = '_';
+            targetElement.appendChild(cursorSpan); // Cursor always at the end of the targetElement
+
+            for (let i = 0; i < textToType.length; i++) {
+                if (textToType[i] === '\n') {
+                    contentSpan.innerHTML += '<br>';
+                } else {
+                    contentSpan.textContent += textToType.charAt(i);
+                }
+                await delay(charSpeed);
+            }
+            // Cursor remains blinking at the end.
+        }
+
+        // Main function to orchestrate all typing animations sequentially
+        async function startTypingAnimation() {
+            const defaultCharSpeed = 70; // Default speed for most text
+            const listItemCharSpeed = 45; // Faster speed for list items
+            const interElementDelay = 100; // Delay before starting to type a new element
+
+            console.log("Initializing typing sequence...");
+
+            // Header
+            const headerEl = document.getElementById('main-header-text');
+            await typeTextIntoElement(headerEl, "RAKESH KRISHNAN", defaultCharSpeed, 200); // Initial longer delay
+
+            // Skillset Title
+            const skillsetTitleEl = document.getElementById('skillset-title-text');
+            await typeTextIntoElement(skillsetTitleEl, skillsetTitleEl.dataset.originalText, defaultCharSpeed, interElementDelay);
+
+            // Skillset Loading text
+            const skillsetLoadingEl = document.getElementById('skillset-loading-text');
+            await typeTextIntoElement(skillsetLoadingEl, skillsetLoadingEl.dataset.originalText, defaultCharSpeed, interElementDelay);
+
+            // Skillset List Items
+            const skillsetItems = document.querySelectorAll('#skillset-list li');
+            for (const item of skillsetItems) {
+                await typeTextIntoElement(item, item.dataset.originalText, listItemCharSpeed, 50); // Shorter delay for list items
+            }
+
+            // Portfolio Title
+            const portfolioTitleEl = document.getElementById('portfolio-title-text');
+            await typeTextIntoElement(portfolioTitleEl, portfolioTitleEl.dataset.originalText, defaultCharSpeed, interElementDelay);
+
+            // Portfolio Description
+            const portfolioDescEl = document.getElementById('portfolio-desc-text');
+            await typeTextIntoElement(portfolioDescEl, portfolioDescEl.dataset.originalText, defaultCharSpeed, interElementDelay);
+
+            // Portfolio List Items
+            const portfolioItems = document.querySelectorAll('#portfolio-list li');
+            for (const item of portfolioItems) {
+                await typeTextIntoElement(item, item.dataset.originalText, listItemCharSpeed, 50);
+            }
+
+            console.log("All typing animations complete. System Ready.");
+        }
+
+        // Start the animation when the window is loaded
+        window.onload = function() {
+            // The original console log is now part of the startTypingAnimation function
+            startTypingAnimation();
+        };
     </script>
 </body>
 </html>
+
