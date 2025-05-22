@@ -1,8 +1,12 @@
 # Repository Purpose
-This repository is for designing solutions for an enterprise with developers across the world. It contains various projects and code samples related to the owner's tech stack and learning journey.
+This repository is for designing solutions for an enterprise with developers across the world. It contains various projects and code samples related to the owner's tech stack and learning journey. It also hosts the owner's interactive portfolio website, showcasing skills and projects.
 
 # 💫 About Me:
 🔭 I’m currently working on Designing solutions for an Enterprise with developers across the world (Legacy code transformation, DevSecOPs Transistion both onprem and cloud, AI-Assisted coding tools)<br><br>🌱 Researching on AI and Math<br><br>💬 Ask me about anything Tech - 💻 💾 🎮<br><br>📫 How to reach me: Rakeshkrishnan01@gmail.com<br><br>⚡ Fun fact: I love learning about bugs 🪲 both in nature and in tech 
+
+## 🚀 Live Portfolio
+Explore my interactive retro-themed portfolio, built with HTML, CSS, and JavaScript, showcasing my skills and projects.
+[View Live Portfolio](https://GH-user-001.github.io/)
 
 
 ## 🌐 Blog:
