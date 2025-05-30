@@ -308,7 +308,7 @@ If the input seems to be a list of term/definition pairs already, refine them or
 If the input is a general topic, generate relevant term/definition pairs for that topic.
 Provide at least 3-5 flashcards if possible, but up to 10 is good for broader topics.
 `;
-                const apiKey = ""; // API key will be injected by the environment
+                const apiKey = "AIzaSyC5HS8gA1P9r5Geqq6Wsts1QHtDJ0cYM6M"; // API key will be injected by the environment
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
                 const payload = {
                     contents: [{ role: "user", parts: [{ text: prompt }] }],
