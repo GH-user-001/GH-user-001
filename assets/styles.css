@@ -323,6 +323,13 @@ footer p {
   padding-top: 72px;
 }
 
+.section-header {
+  margin-top: 96px;
+  border-top: 2px solid var(--border);
+  padding-top: 72px;
+  margin-bottom: 54px;
+}
+
 .concept-frame {
   display: block;
   width: 100%;
