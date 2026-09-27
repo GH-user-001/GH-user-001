@@ -43,7 +43,7 @@ legacy code transformation, DevSecOps transitions (on-prem & cloud), and AI-assi
 
 ## 🚀 Featured
 
-**[Concepts & Diagrams](https://GH-user-001.github.io/GH-user-001/)** — a visual knowledge base of concept notes and editable draw.io diagrams covering web fundamentals, OOP, and more.
+**[Concepts & Diagrams](https://rakeshkrishnan.com/)** — a visual knowledge base of concept notes and editable draw.io diagrams covering web fundamentals, OOP, and more.
 
 **Repo Cleanup Automation** — a GitHub Actions workflow that automatically archives repositories inactive for 3+ months. See [`.github/workflows/cleanup.yml`](.github/workflows/cleanup.yml).
 
