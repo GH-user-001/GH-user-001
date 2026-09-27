@@ -323,12 +323,45 @@ footer p {
   padding-top: 72px;
 }
 
-.section-header {
-  margin-top: 96px;
-  border-top: 2px solid var(--border);
-  padding-top: 72px;
-  margin-bottom: 54px;
+.site-nav {
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  font-size: 0.9rem;
 }
+
+.site-nav .wrap {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.site-nav a:hover { color: var(--text); }
+.site-nav .home { color: var(--text); font-weight: 500; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 72px;
+}
+
+.card {
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  background: var(--soft);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card:hover { border-color: var(--link); }
+.card h3 { margin: 0 0 6px; font-size: 1.15rem; font-family: Georgia, serif; font-weight: 400; }
+.card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
 
 .concept-frame {
   display: block;
