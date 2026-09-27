@@ -13,15 +13,24 @@
       <h1>Rakesh Krishnan</h1>
       <p>DevSecOps · AI-Assisted Engineering</p>
     </div>
+    <nav class="site-nav" aria-label="Site navigation">
+      <div class="wrap">
+        <a href="concepts/">Concepts &amp; Diagrams</a>
+        <a href="projects/">Projects</a>
+      </div>
+    </nav>
   </header>
 
   <main class="page">
-    <nav class="toc" aria-labelledby="contents-title">
-      <h2 id="contents-title">Table of contents</h2>
-      <ol>
-        <li><a href="#about">About me</a></li>
-        <li><a href="#concepts">Concepts and Diagrams</a></li>
-      </ol>
+    <nav class="card-grid" aria-label="Site sections">
+      <a href="concepts/" class="card">
+        <h3>Concepts &amp; Diagrams</h3>
+        <p>Simple explanations and editable draw.io diagrams for things I've learned.</p>
+      </a>
+      <a href="projects/" class="card">
+        <h3>Projects</h3>
+        <p>Personal tools, automations, and experiments.</p>
+      </a>
     </nav>
 
     <article class="concept" id="about">
@@ -81,169 +90,12 @@
           </table>
         </div>
       </section>
-
-      <p class="back-link"><a href="#contents-title">Back to table of contents ↑</a></p>
-    </article>
-
-    <div id="concepts" class="section-header">
-      <p class="category">Knowledge base</p>
-      <h2>Concepts and Diagrams</h2>
-      <p class="lede">A growing collection of simple explanations and editable diagrams.</p>
-    </div>
-
-    <article class="concept" id="http-request-lifecycle">
-      <header class="concept-title">
-        <p class="category">Web fundamentals</p>
-        <h2>HTTP Request Lifecycle</h2>
-        <p>A browser turns a URL into a rendered page through name resolution, connection setup, a request-response exchange, and rendering.</p>
-      </header>
-
-      <section id="http-mental-model">
-        <h3>Mental model</h3>
-        <p>Think of the browser as a client sending a precisely addressed order. DNS finds the destination, the network establishes a route, the server prepares a response, and the browser assembles the result.</p>
-      </section>
-
-      <section id="http-overview">
-        <h3>Overview</h3>
-        <div class="diagram" role="img" aria-label="Browser sends a request through DNS to a server. The response returns to the browser for rendering.">
-          <div class="flow">
-            <span class="node">Browser</span>
-            <span class="arrow" aria-hidden="true">→</span>
-            <span class="node">DNS</span>
-            <span class="arrow" aria-hidden="true">→</span>
-            <span class="node">Server</span>
-            <span class="arrow" aria-hidden="true">→</span>
-            <span class="node">Response</span>
-            <span class="arrow" aria-hidden="true">→</span>
-            <span class="node">Render</span>
-          </div>
-        </div>
-        <p><a href="concepts/http-request-lifecycle/diagram.drawio">Download or edit the draw.io source</a></p>
-      </section>
-
-      <section id="http-steps">
-        <h3>Step by step</h3>
-
-        <h4>1. Read the URL</h4>
-        <p>The browser separates the URL into its scheme, hostname, optional port, path, query parameters, and fragment. The scheme tells it whether the request normally uses HTTP or HTTPS.</p>
-
-        <h4>2. Find the server</h4>
-        <p>The browser needs an IP address for the hostname. It checks local caches first. If no useful result exists, a DNS resolver follows the DNS hierarchy and returns an address.</p>
-
-        <h4>3. Establish a connection</h4>
-        <p>The browser opens a transport connection. HTTP/1.1 and HTTP/2 commonly use TCP. HTTP/3 uses QUIC over UDP. HTTPS also requires a secure TLS session so the browser can verify the server and encrypt traffic.</p>
-
-        <h4>4. Send the HTTP request</h4>
-        <p>The request contains a method such as GET or POST, a path, headers, and sometimes a body. Headers communicate details such as accepted formats, cookies, caching information, and the browser identity.</p>
-
-        <h4>5. Process the request</h4>
-        <p>A web server, reverse proxy, application, cache, and database may all participate. The exact path depends on the system, but the result is an HTTP response.</p>
-
-        <h4>6. Receive the response</h4>
-        <p>The response contains a status code, headers, and usually a body. A status such as 200 indicates success, 301 or 302 redirects the browser, 404 means the resource was not found, and 500 indicates a server failure.</p>
-
-        <h4>7. Render the page</h4>
-        <p>The browser parses HTML into a document tree, fetches referenced resources, applies CSS, runs JavaScript, calculates layout, and paints pixels. A single page can therefore trigger many additional requests.</p>
-      </section>
-
-      <section id="http-layers">
-        <h3>Supporting layers</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Layer</th>
-                <th>Purpose</th>
-                <th>Typical result</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>DNS</td>
-                <td>Find the network address for a hostname</td>
-                <td>An IPv4 or IPv6 address</td>
-              </tr>
-              <tr>
-                <td>TCP or QUIC</td>
-                <td>Transport data between browser and server</td>
-                <td>A usable connection</td>
-              </tr>
-              <tr>
-                <td>TLS</td>
-                <td>Authenticate and encrypt an HTTPS connection</td>
-                <td>A secure session</td>
-              </tr>
-              <tr>
-                <td>HTTP</td>
-                <td>Define request and response messages</td>
-                <td>Status, headers, and content</td>
-              </tr>
-              <tr>
-                <td>Browser rendering</td>
-                <td>Turn resources into an interactive page</td>
-                <td>Pixels and behavior</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="http-caching">
-        <h3>Caching and repeated visits</h3>
-        <p>Not every visit repeats every step. DNS answers can be cached, transport connections can be reused, TLS sessions can resume, and HTTP responses can be served from a browser or intermediary cache. These shortcuts improve speed, but every cache needs rules for freshness and invalidation.</p>
-      </section>
-
-      <section id="http-mistakes">
-        <h3>Common misunderstandings</h3>
-        <ul>
-          <li>HTTP is the message protocol; it is not the same thing as DNS, TCP, QUIC, or TLS.</li>
-          <li>Loading one page normally creates many requests for styles, scripts, images, fonts, and data.</li>
-          <li>The server can represent several components rather than one physical machine.</li>
-          <li>A successful network connection does not guarantee a successful HTTP response.</li>
-          <li>Caching may skip work, so two visits to the same URL can follow different paths.</li>
-        </ul>
-      </section>
-
-      <section id="http-reading">
-        <h3>Further reading</h3>
-        <ul>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">MDN: An overview of HTTP</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name">MDN: What is a domain name?</a></li>
-        </ul>
-      </section>
-
-      <p class="back-link"><a href="#contents-title">Back to table of contents ↑</a></p>
-    </article>
-
-    <article class="concept concept-embedded" id="what-is-oop">
-      <header class="concept-title">
-        <p class="category">Programming fundamentals</p>
-        <h2>What is Object-Oriented Programming?</h2>
-        <p>Classes are blueprints, objects are the things built from them, properties hold details, and methods describe behavior.</p>
-      </header>
-
-      <iframe
-        class="concept-frame"
-        src="concepts/what-is-oop/index.html"
-        title="What is OOP? illustrated concept page"
-        loading="lazy"
-        onload="this.style.height = this.contentDocument.documentElement.scrollHeight + 'px'"
-      ></iframe>
-
-      <p class="source-links">
-        <a href="concepts/what-is-oop/index.html">Open this concept by itself</a>
-        <span aria-hidden="true"> · </span>
-        <a href="concepts/what-is-oop/diagram.drawio">Download or edit the draw.io source</a>
-      </p>
-
-      <p class="back-link"><a href="#contents-title">Back to table of contents ↑</a></p>
     </article>
   </main>
 
   <footer>
     <div class="page">
-      <p>Editable diagram sources are stored as <code>.drawio</code> files.</p>
-      <p><a href="https://github.com/GH-user-001/Concepts-Diagrams">View this repository on GitHub</a></p>
+      <p><a href="https://github.com/GH-user-001/GH-user-001">View on GitHub</a></p>
     </div>
   </footer>
 </body>
