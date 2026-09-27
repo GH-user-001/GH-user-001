@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A visual overview of what happens after entering a URL in a browser.">
+  <title>HTTP Request Lifecycle · Concepts & Diagrams</title>
+  <link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body>
+  <header class="concept-header">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Concepts</a> / Web fundamentals</nav>
+      <p class="eyebrow">Web fundamentals</p>
+      <h1>HTTP Request Lifecycle</h1>
+      <p class="lede">A browser turns a URL into a rendered page through name resolution, connection setup, a request–response exchange, and rendering.</p>
+    </div>
+  </header>
+
+  <main class="wrap concept-layout">
+    <article class="prose">
+      <h2>Mental model</h2>
+      <p>Think of the browser as a client sending a precisely addressed order. DNS finds the destination, the network establishes a route, the server prepares a response, and the browser assembles the result.</p>
+
+      <h2>How it works</h2>
+      <div class="diagram">
+        <div class="flow" role="img" aria-label="Browser sends a request through DNS and the network to a server, which returns a response to the browser">
+          <span class="node">Browser</span><span class="arrow">→</span>
+          <span class="node">DNS</span><span class="arrow">→</span>
+          <span class="node">Server</span><span class="arrow">→</span>
+          <span class="node">Response</span><span class="arrow">→</span>
+          <span class="node">Render</span>
+        </div>
+      </div>
+      <p><a href="diagram.drawio">Open the editable draw.io source</a>.</p>
+      <ol>
+        <li><strong>Resolve:</strong> DNS translates the hostname into an IP address.</li>
+        <li><strong>Connect:</strong> the browser establishes a transport connection; HTTPS also negotiates TLS.</li>
+        <li><strong>Request:</strong> the browser sends an HTTP method, path, headers, and sometimes a body.</li>
+        <li><strong>Respond:</strong> the server returns a status, headers, and content.</li>
+        <li><strong>Render:</strong> the browser parses the response and may request CSS, JavaScript, fonts, and images.</li>
+      </ol>
+
+      <div class="callout"><strong>Key distinction:</strong> HTTP describes the messages; DNS, TCP or QUIC, and TLS provide supporting layers.</div>
+
+      <h2>Trade-offs and common mistakes</h2>
+      <ul>
+        <li>Caching reduces latency and server work, but stale content needs an invalidation strategy.</li>
+        <li>A page usually makes many HTTP requests—not just the first document request.</li>
+        <li>DNS resolution and connection setup may be skipped when cached entries and reusable connections exist.</li>
+      </ul>
+
+      <h2>Sources and further reading</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">MDN: An overview of HTTP</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name">MDN: What is a domain name?</a></li>
+      </ul>
+    </article>
+
+    <aside class="meta" aria-label="Concept metadata">
+      <dl>
+        <dt>Status</dt><dd>Starter example</dd>
+        <dt>Last reviewed</dt><dd>2026-09-05</dd>
+        <dt>Diagram source</dt><dd><a href="diagram.drawio">Open .drawio file</a></dd>
+        <dt>Related concepts</dt><dd>DNS, TLS, browser rendering</dd>
+      </dl>
+    </aside>
+  </main>
+
+  <footer><div class="wrap"><a href="../../index.html">← Back to all concepts</a></div></footer>
+</body>
+</html>
