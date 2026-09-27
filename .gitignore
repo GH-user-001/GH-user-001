@@ -1,0 +1,6 @@
+.DS_Store
+Thumbs.db
+*.drawio.bkp
+*.drawio.tmp
+.vscode/
+.idea/

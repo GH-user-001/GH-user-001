@@ -43,7 +43,7 @@ legacy code transformation, DevSecOps transitions (on-prem & cloud), and AI-assi
 
 ## 🚀 Featured
 
-**[Interactive Retro Portfolio](https://GH-user-001.github.io/)** — a retro-themed portfolio site built from scratch with HTML, CSS, and JavaScript, showcasing my projects and skills.
+**[Concepts & Diagrams](https://GH-user-001.github.io/GH-user-001/)** — a visual knowledge base of concept notes and editable draw.io diagrams covering web fundamentals, OOP, and more.
 
 **Repo Cleanup Automation** — a GitHub Actions workflow that automatically archives repositories inactive for 3+ months. See [`.github/workflows/cleanup.yml`](.github/workflows/cleanup.yml).
 

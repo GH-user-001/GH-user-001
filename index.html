@@ -1,373 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> The World's Simplest Flashcard Generator </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .flashcard-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px; /* Spacing between cards */
-            justify-content: center;
-            padding: 20px;
-        }
-        .flashcard {
-            background-color: transparent; /* Outer container is transparent */
-            width: 280px;
-            height: 180px;
-            perspective: 1000px; /* For 3D flip effect */
-            border-radius: 0.5rem; /* rounded-lg */
-            cursor: pointer;
-        }
-        .flashcard-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* shadow-lg */
-            border-radius: 0.5rem; /* rounded-lg */
-        }
-        .flashcard.flipped .flashcard-inner {
-            transform: rotateY(180deg);
-        }
-        .flashcard-front, .flashcard-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden; /* For Safari */
-            backface-visibility: hidden; /* Hides the back of the panel during flip */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 15px; /* Adjusted padding for potentially more text */
-            border-radius: 0.5rem; /* rounded-lg */
-            border: 1px solid rgba(0,0,0,0.1); /* Subtle border for definition */
-            overflow-y: auto; /* Allow scrolling for longer definitions */
-        }
-        .flashcard-back {
-            transform: rotateY(180deg);
-        }
-        .term {
-            font-size: 1.1rem; /* Slightly adjusted */
-            font-weight: 600; /* semibold */
-        }
-        .definition {
-            font-size: 0.9rem; /* Slightly adjusted for more text */
-            font-weight: 400; /* normal */
-        }
-        .loading-spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #4f46e5; /* indigo-600 */
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        .modal {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .modal.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 90%;
-            width: 400px;
-        }
-        .modal-buttons button {
-            margin-top: 1rem;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A single-page collection of concept notes and editable diagrams.">
+  <title>Concepts and Diagrams</title>
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col items-center pt-8 px-4">
-
-    <div class="w-full max-w-2xl bg-white p-6 sm:p-8 rounded-lg shadow-xl">
-        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-6 sm:mb-8">The World's Simplest Flashcard Generator</h1>
-
-        <div class="mb-6">
-            <label for="topicInput" class="block text-sm font-medium text-gray-700 mb-1">Enter Topic or Terms::</label>
-            <textarea id="topicInput" rows="3" class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-gray-900" placeholder="e.g., 'Key Concepts in Photosynthesis' or 'chinese characters' or even 'Who is Rakesh?' "></textarea>
-        </div>
-
-        <button id="generateButton" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-md shadow-md transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 flex items-center justify-center">
-            <svg id="buttonIcon" class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <span id="buttonText">Generate Flashcards</span>
-        </button>
-
-        <div id="statusMessage" class="mt-6 text-center text-gray-600 min-h-[24px]"></div>
-        <div id="loadingIndicator" class="loading-spinner hidden mx-auto my-4"></div>
+<body>
+  <header class="site-header" id="top">
+    <div class="page">
+      <h1>Concepts and Diagrams</h1>
+      <p>A growing collection of simple explanations and editable diagrams.</p>
     </div>
+  </header>
 
-    <div id="flashcardsContainer" class="flashcard-container mt-8 w-full max-w-5xl">
-        </div>
+  <main class="page">
+    <nav class="toc" aria-labelledby="contents-title">
+      <h2 id="contents-title">Table of contents</h2>
+      <ol>
+        <li><a href="#http-request-lifecycle">HTTP Request Lifecycle</a></li>
+        <li><a href="#what-is-oop">What is Object-Oriented Programming?</a></li>
+      </ol>
+    </nav>
 
-    <div id="customModal" class="modal">
-        <div class="modal-content">
-            <p id="modalMessageText" class="text-gray-700 text-lg"></p>
-            <div class="modal-buttons">
-                <button id="modalCloseButton" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-6 rounded-md transition duration-150">OK</button>
-            </div>
+    <article class="concept" id="http-request-lifecycle">
+      <header class="concept-title">
+        <p class="category">Web fundamentals</p>
+        <h2>HTTP Request Lifecycle</h2>
+        <p>A browser turns a URL into a rendered page through name resolution, connection setup, a request-response exchange, and rendering.</p>
+      </header>
+
+      <section id="http-mental-model">
+        <h3>Mental model</h3>
+        <p>Think of the browser as a client sending a precisely addressed order. DNS finds the destination, the network establishes a route, the server prepares a response, and the browser assembles the result.</p>
+      </section>
+
+      <section id="http-overview">
+        <h3>Overview</h3>
+        <div class="diagram" role="img" aria-label="Browser sends a request through DNS to a server. The response returns to the browser for rendering.">
+          <div class="flow">
+            <span class="node">Browser</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <span class="node">DNS</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <span class="node">Server</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <span class="node">Response</span>
+            <span class="arrow" aria-hidden="true">→</span>
+            <span class="node">Render</span>
+          </div>
         </div>
+        <p><a href="concepts/http-request-lifecycle/diagram.drawio">Download or edit the draw.io source</a></p>
+      </section>
+
+      <section id="http-steps">
+        <h3>Step by step</h3>
+
+        <h4>1. Read the URL</h4>
+        <p>The browser separates the URL into its scheme, hostname, optional port, path, query parameters, and fragment. The scheme tells it whether the request normally uses HTTP or HTTPS.</p>
+
+        <h4>2. Find the server</h4>
+        <p>The browser needs an IP address for the hostname. It checks local caches first. If no useful result exists, a DNS resolver follows the DNS hierarchy and returns an address.</p>
+
+        <h4>3. Establish a connection</h4>
+        <p>The browser opens a transport connection. HTTP/1.1 and HTTP/2 commonly use TCP. HTTP/3 uses QUIC over UDP. HTTPS also requires a secure TLS session so the browser can verify the server and encrypt traffic.</p>
+
+        <h4>4. Send the HTTP request</h4>
+        <p>The request contains a method such as GET or POST, a path, headers, and sometimes a body. Headers communicate details such as accepted formats, cookies, caching information, and the browser identity.</p>
+
+        <h4>5. Process the request</h4>
+        <p>A web server, reverse proxy, application, cache, and database may all participate. The exact path depends on the system, but the result is an HTTP response.</p>
+
+        <h4>6. Receive the response</h4>
+        <p>The response contains a status code, headers, and usually a body. A status such as 200 indicates success, 301 or 302 redirects the browser, 404 means the resource was not found, and 500 indicates a server failure.</p>
+
+        <h4>7. Render the page</h4>
+        <p>The browser parses HTML into a document tree, fetches referenced resources, applies CSS, runs JavaScript, calculates layout, and paints pixels. A single page can therefore trigger many additional requests.</p>
+      </section>
+
+      <section id="http-layers">
+        <h3>Supporting layers</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>Purpose</th>
+                <th>Typical result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DNS</td>
+                <td>Find the network address for a hostname</td>
+                <td>An IPv4 or IPv6 address</td>
+              </tr>
+              <tr>
+                <td>TCP or QUIC</td>
+                <td>Transport data between browser and server</td>
+                <td>A usable connection</td>
+              </tr>
+              <tr>
+                <td>TLS</td>
+                <td>Authenticate and encrypt an HTTPS connection</td>
+                <td>A secure session</td>
+              </tr>
+              <tr>
+                <td>HTTP</td>
+                <td>Define request and response messages</td>
+                <td>Status, headers, and content</td>
+              </tr>
+              <tr>
+                <td>Browser rendering</td>
+                <td>Turn resources into an interactive page</td>
+                <td>Pixels and behavior</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="http-caching">
+        <h3>Caching and repeated visits</h3>
+        <p>Not every visit repeats every step. DNS answers can be cached, transport connections can be reused, TLS sessions can resume, and HTTP responses can be served from a browser or intermediary cache. These shortcuts improve speed, but every cache needs rules for freshness and invalidation.</p>
+      </section>
+
+      <section id="http-mistakes">
+        <h3>Common misunderstandings</h3>
+        <ul>
+          <li>HTTP is the message protocol; it is not the same thing as DNS, TCP, QUIC, or TLS.</li>
+          <li>Loading one page normally creates many requests for styles, scripts, images, fonts, and data.</li>
+          <li>The server can represent several components rather than one physical machine.</li>
+          <li>A successful network connection does not guarantee a successful HTTP response.</li>
+          <li>Caching may skip work, so two visits to the same URL can follow different paths.</li>
+        </ul>
+      </section>
+
+      <section id="http-reading">
+        <h3>Further reading</h3>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">MDN: An overview of HTTP</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name">MDN: What is a domain name?</a></li>
+        </ul>
+      </section>
+
+      <p class="back-link"><a href="#contents-title">Back to table of contents ↑</a></p>
+    </article>
+
+    <article class="concept concept-embedded" id="what-is-oop">
+      <header class="concept-title">
+        <p class="category">Programming fundamentals</p>
+        <h2>What is Object-Oriented Programming?</h2>
+        <p>Classes are blueprints, objects are the things built from them, properties hold details, and methods describe behavior.</p>
+      </header>
+
+      <iframe
+        class="concept-frame"
+        src="concepts/what-is-oop/index.html"
+        title="What is OOP? illustrated concept page"
+        loading="lazy"
+        onload="this.style.height = this.contentDocument.documentElement.scrollHeight + 'px'"
+      ></iframe>
+
+      <p class="source-links">
+        <a href="concepts/what-is-oop/index.html">Open this concept by itself</a>
+        <span aria-hidden="true"> · </span>
+        <a href="concepts/what-is-oop/diagram.drawio">Download or edit the draw.io source</a>
+      </p>
+
+      <p class="back-link"><a href="#contents-title">Back to table of contents ↑</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="page">
+      <p>Editable diagram sources are stored as <code>.drawio</code> files.</p>
+      <p><a href="https://github.com/GH-user-001/Concepts-Diagrams">View this repository on GitHub</a></p>
     </div>
-
-    <script>
-        // DOM Elements
-        const topicInput = document.getElementById('topicInput');
-        const generateButton = document.getElementById('generateButton');
-        const flashcardsContainer = document.getElementById('flashcardsContainer');
-        const statusMessage = document.getElementById('statusMessage');
-        const loadingIndicator = document.getElementById('loadingIndicator');
-        const buttonText = document.getElementById('buttonText');
-        const buttonIcon = document.getElementById('buttonIcon');
-        const originalButtonIconPath = buttonIcon.innerHTML;
-        const customModal = document.getElementById('customModal');
-        const modalMessageText = document.getElementById('modalMessageText');
-        const modalCloseButton = document.getElementById('modalCloseButton');
-
-        // --- Modal Logic ---
-        function showModal(message) {
-            modalMessageText.textContent = message;
-            customModal.classList.add('show');
-        }
-        modalCloseButton.addEventListener('click', () => customModal.classList.remove('show'));
-        customModal.addEventListener('click', (event) => {
-            if (event.target === customModal) customModal.classList.remove('show');
-        });
-
-        // --- Color Palette for Flashcards ---
-        const cardColors = [
-            { frontBg: 'bg-sky-100', frontText: 'text-sky-800', backBg: 'bg-sky-600', backText: 'text-sky-50' },
-            { frontBg: 'bg-emerald-100', frontText: 'text-emerald-800', backBg: 'bg-emerald-600', backText: 'text-emerald-50' },
-            { frontBg: 'bg-amber-100', frontText: 'text-amber-800', backBg: 'bg-amber-500', backText: 'text-amber-50' },
-            { frontBg: 'bg-rose-100', frontText: 'text-rose-800', backBg: 'bg-rose-600', backText: 'text-rose-50' },
-            { frontBg: 'bg-violet-100', frontText: 'text-violet-800', backBg: 'bg-violet-600', backText: 'text-violet-50' },
-            { frontBg: 'bg-lime-100', frontText: 'text-lime-800', backBg: 'bg-lime-600', backText: 'text-lime-50' },
-            { frontBg: 'bg-cyan-100', frontText: 'text-cyan-800', backBg: 'bg-cyan-600', backText: 'text-cyan-50' },
-            { frontBg: 'bg-fuchsia-100', frontText: 'text-fuchsia-800', backBg: 'bg-fuchsia-600', backText: 'text-fuchsia-50' }
-        ];
-
-        // --- Rakesh's Skills: Keywords and Hardcoded Flashcards ---
-        const rakeshKeywords = ["rakesh", "rakesh krishnan", "who is rakesh", "what does rakesh do", "rakesh skills", "rakesh resume", "rakesh experience"];
-        const rakeshFlashcards = [
-            {
-                term: "Tech & Cloud Engineer",
-                definition: "Moves old computer systems to the new cloud (AWS/Azure).Builds super-fast release systems (with Azure DevOps & GitHub). Gets things done 60% quicker and releases 40% more often!"
-            },
-            {
-                term: "AI & DevOps Enabler",
-                definition: "Enable smarter ways of working with AI and automation. Introduced GitHub Copilot to development teams, improving productivity by 20%"
-            },
-            {
-                term: " Security & Systems Optimizer",
-                definition: "Integrates security and efficiency into everyday development"
-            },
-            {
-                term: "Contact",
-                definition: "rakeshkrishnan01@gmail.com"
-            },
-            {
-                term: "Side Quests",
-                definition: "Robotics, AR Applications Developement.."
-            }
-        ];
-
-        function displayFlashcards(cardsData) {
-            flashcardsContainer.innerHTML = ''; // Clear previous cards
-            if (!cardsData || cardsData.length === 0) {
-                 statusMessage.textContent = 'No flashcards to display.';
-                return;
-            }
-
-            statusMessage.textContent = `Generated ${cardsData.length} flashcards. Click to flip!`;
-            cardsData.forEach((flashcardData, index) => {
-                if (flashcardData.term && flashcardData.definition) {
-                    const selectedColor = cardColors[index % cardColors.length];
-
-                    const cardDiv = document.createElement('div');
-                    cardDiv.classList.add('flashcard', 'rounded-lg', 'shadow-lg');
-                    cardDiv.dataset['index'] = index.toString();
-
-                    const cardInner = document.createElement('div');
-                    cardInner.classList.add('flashcard-inner');
-
-                    const cardFront = document.createElement('div');
-                    cardFront.classList.add('flashcard-front');
-                    cardFront.classList.add(selectedColor.frontBg, selectedColor.frontText);
-
-                    const termDiv = document.createElement('div');
-                    termDiv.classList.add('term', 'p-2');
-                    termDiv.textContent = flashcardData.term;
-
-                    const cardBack = document.createElement('div');
-                    cardBack.classList.add('flashcard-back');
-                    cardBack.classList.add(selectedColor.backBg, selectedColor.backText);
-
-                    const definitionDiv = document.createElement('div');
-                    definitionDiv.classList.add('definition', 'p-2');
-                    definitionDiv.textContent = flashcardData.definition;
-
-                    cardFront.appendChild(termDiv);
-                    cardBack.appendChild(definitionDiv);
-                    cardInner.appendChild(cardFront);
-                    cardInner.appendChild(cardBack);
-                    cardDiv.appendChild(cardInner);
-
-                    flashcardsContainer.appendChild(cardDiv);
-
-                    cardDiv.addEventListener('click', () => {
-                        cardDiv.classList.toggle('flipped');
-                    });
-                }
-            });
-            if (flashcardsContainer.children.length === 0) {
-                statusMessage.textContent = 'No valid flashcards could be processed.';
-                showModal('No valid flashcards were found or generated.');
-            }
-        }
-
-
-        // --- Flashcard Generation Logic ---
-        generateButton.addEventListener('click', async () => {
-            const topic = topicInput.value.trim();
-            const lowerCaseTopic = topic.toLowerCase();
-
-            if (!topic) {
-                showModal('Please enter a topic or ask about Rakesh.');
-                flashcardsContainer.innerHTML = '';
-                statusMessage.textContent = '';
-                return;
-            }
-
-            // Check if the input matches any Rakesh keywords
-            const isRakeshQuery = rakeshKeywords.some(keyword => lowerCaseTopic.includes(keyword));
-
-            if (isRakeshQuery) {
-                statusMessage.textContent = "Displaying Rakesh's Key Skills...";
-                loadingIndicator.classList.add('hidden'); // No loading for hardcoded
-                generateButton.disabled = false; // Keep button enabled
-                buttonText.textContent = 'Generate Flashcards';
-                buttonIcon.innerHTML = originalButtonIconPath;
-
-                displayFlashcards(rakeshFlashcards);
-                return; // Stop further processing
-            }
-
-            // If not a Rakesh query, proceed with AI generation
-            statusMessage.textContent = 'Generating flashcards with AI...';
-            loadingIndicator.classList.remove('hidden');
-            flashcardsContainer.innerHTML = '';
-            generateButton.disabled = true;
-            buttonText.textContent = 'Generating...';
-            buttonIcon.innerHTML = `<svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>`;
-
-            try {
-                const prompt = `Generate a list of flashcards for the following input: "${topic}".
-Each flashcard must have a 'term' and a 'definition'.
-The term should be a concise keyword or phrase.
-The definition should be a clear and brief explanation of the term.
-Ensure terms and definitions are distinct.
-If the input seems to be a list of term/definition pairs already, refine them or use them as a basis.
-If the input is a general topic, generate relevant term/definition pairs for that topic.
-Provide at least 3-5 flashcards if possible, but up to 10 is good for broader topics.
-`;
-                const apiKey = "AIzaSyC5HS8gA1P9r5Geqq6Wsts1QHtDJ0cYM6M"; // API key will be injected by the environment
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                const payload = {
-                    contents: [{ role: "user", parts: [{ text: prompt }] }],
-                    generationConfig: {
-                        responseMimeType: "application/json",
-                        responseSchema: {
-                            type: "OBJECT",
-                            properties: {
-                                "flashcards": {
-                                    type: "ARRAY",
-                                    description: "A list of flashcards, where each flashcard has a term and a definition.",
-                                    items: {
-                                        type: "OBJECT",
-                                        properties: {
-                                            "term": { type: "STRING", description: "The word or phrase to be learned." },
-                                            "definition": { type: "STRING", description: "The explanation or meaning of the term." }
-                                        },
-                                        required: ["term", "definition"]
-                                    }
-                                }
-                            },
-                           required: ["flashcards"]
-                        }
-                    }
-                };
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) {
-                    const errorBody = await response.text();
-                    console.error("API Error Response:", errorBody);
-                    throw new Error(`API request failed with status ${response.status}. ${errorBody}`);
-                }
-
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0 &&
-                    result.candidates[0].content.parts[0].text) {
-
-                    const parsedJson = JSON.parse(result.candidates[0].content.parts[0].text);
-                    const aiGeneratedFlashcards = parsedJson.flashcards;
-                    displayFlashcards(aiGeneratedFlashcards);
-
-                } else {
-                    statusMessage.textContent = 'Failed to generate flashcards or received an empty response from AI.';
-                    console.error("Unexpected API response structure:", result);
-                    showModal('Failed to get a valid response from the AI. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error generating content with AI:', error);
-                const detailedError = error.message || 'An unknown error occurred';
-                statusMessage.textContent = `An AI error occurred. Please check the console.`;
-                showModal(`An AI error occurred: ${detailedError}. Check the console for more details.`);
-                flashcardsContainer.innerHTML = '';
-            } finally {
-                generateButton.disabled = false;
-                loadingIndicator.classList.add('hidden');
-                buttonText.textContent = 'Generate Flashcards';
-                buttonIcon.innerHTML = originalButtonIconPath;
-            }
-        });
-    </script>
+  </footer>
 </body>
 </html>

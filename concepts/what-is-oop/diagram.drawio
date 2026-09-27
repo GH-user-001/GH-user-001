@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-05T00:00:00.000Z" agent="claude" version="24.0.0" type="device">
+  <diagram id="oop-page-map" name="The Toy Robot Book - Page Map">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- HERO -->
+        <mxCell id="hero" value="HERO&#10;&quot;What is OOP?&quot;&#10;It's just toy robots. Really." style="rounded=1;arcSize=20;whiteSpace=wrap;html=1;fillColor=#FBE3D3;strokeColor=#E8763C;fontFamily=Helvetica;fontStyle=1;fontSize=14;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="240" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- BEAT 1: CLASS -->
+        <mxCell id="beat1" value="THE CLASS&#10;&quot;First, a blueprint.&quot;&#10;A plan for the robot — arms, eyes, everything — but not a toy you can play with yet." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#DCE7F8;strokeColor=#3E6FBF;fontFamily=Helvetica;fontSize=12;align=left;spacingLeft=8;spacingRight=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="150" width="320" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- BEAT 2: OBJECT -->
+        <mxCell id="beat2" value="THE OBJECT&#10;&quot;Now build real toys.&quot;&#10;Many separate toys made from one plan — each one real, each one an object." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#FBE3D3;strokeColor=#E8763C;fontFamily=Helvetica;fontSize=12;align=left;spacingLeft=8;spacingRight=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="240" width="320" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- BEAT 3: PROPERTIES -->
+        <mxCell id="beat3" value="PROPERTIES&#10;&quot;Every toy has details.&quot;&#10;Color, size, battery — facts each robot keeps as its own." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#DCF0E8;strokeColor=#3F9E82;fontFamily=Helvetica;fontSize=12;align=left;spacingLeft=8;spacingRight=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="330" width="320" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- BEAT 4: METHODS -->
+        <mxCell id="beat4" value="METHODS&#10;&quot;Every toy can do things.&quot;&#10;Wave, walk, beep — actions built into the robot, the things it can do." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#EBE1F7;strokeColor=#8B5FBF;fontFamily=Helvetica;fontSize=12;align=left;spacingLeft=8;spacingRight=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="420" width="320" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- BEAT 5: INHERITANCE -->
+        <mxCell id="beat5" value="INHERITANCE&#10;&quot;Some robots are family.&quot;&#10;A new plan starts from an old one, keeps its tricks, then adds something new." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#DCE7F8;strokeColor=#3E6FBF;fontFamily=Helvetica;fontSize=12;align=left;spacingLeft=8;spacingRight=8;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="510" width="320" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- PILLARS INTRO -->
+        <mxCell id="pillarsIntro" value="THE FOUR BIG IDEAS&#10;Grown-ups gave these four toy-robot habits fancy names." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#F3ECDC;strokeColor=#6B6152;fontFamily=Helvetica;fontStyle=1;fontSize=13;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="320" y="610" width="240" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- PILLAR 1: ENCAPSULATION -->
+        <mxCell id="pillar1" value="PILLAR 1&#10;Encapsulation&#10;Wires and gears sealed inside the case; you just press the one button outside." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#DCE7F8;strokeColor=#3E6FBF;fontFamily=Helvetica;fontSize=11;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="700" width="190" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- PILLAR 2: ABSTRACTION -->
+        <mxCell id="pillar2" value="PILLAR 2&#10;Abstraction&#10;The remote just has a GO button — you don't need to know how the motor works." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#FBE3D3;strokeColor=#E8763C;fontFamily=Helvetica;fontSize=11;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="250" y="700" width="190" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- PILLAR 3: INHERITANCE -->
+        <mxCell id="pillar3" value="PILLAR 3&#10;Inheritance&#10;A new robot plan borrows an old plan's tricks, then tapes on something extra." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#DCF0E8;strokeColor=#3F9E82;fontFamily=Helvetica;fontSize=11;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="460" y="700" width="190" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- PILLAR 4: POLYMORPHISM -->
+        <mxCell id="pillar4" value="PILLAR 4&#10;Polymorphism&#10;Press the same GO button on three robots — one waves, one spins, one beeps." style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#EBE1F7;strokeColor=#8B5FBF;fontFamily=Helvetica;fontSize=11;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="670" y="700" width="190" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- RECAP LABEL -->
+        <mxCell id="recapLabel" value="RECAP: THE WHOLE BOOK, IN FOUR TOYS" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#F3ECDC;strokeColor=#6B6152;fontFamily=Helvetica;fontStyle=1;fontSize=13;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="320" y="830" width="240" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- RECAP 1: CLASS -->
+        <mxCell id="recap1" value="Class&#10;the plan" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#3E6FBF;strokeWidth=2;dashed=1;fontFamily=Helvetica;fontStyle=1;fontSize=13;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="920" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- RECAP 2: OBJECT -->
+        <mxCell id="recap2" value="Object&#10;the toy" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#E8763C;strokeColor=#c25f2a;fontFamily=Helvetica;fontStyle=1;fontSize=13;fontColor=#ffffff;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="260" y="920" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- RECAP 3: PROPERTY -->
+        <mxCell id="recap3" value="Property&#10;what it has" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#3F9E82;strokeColor=#2f7d67;fontFamily=Helvetica;fontStyle=1;fontSize=13;fontColor=#ffffff;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="460" y="920" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- RECAP 4: METHOD -->
+        <mxCell id="recap4" value="Method&#10;what it does" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#8B5FBF;strokeColor=#6d449a;fontFamily=Helvetica;fontStyle=1;fontSize=13;fontColor=#ffffff;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="660" y="920" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- CREDIT -->
+        <mxCell id="credit" value="&quot;That's it. That's object-oriented programming.&quot;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontStyle=2;fontSize=13;fontColor=#6B6152;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="280" y="1010" width="320" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- VERTICAL FLOW ARROWS -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="hero" target="beat1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="beat1" target="beat2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="beat2" target="beat3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="beat3" target="beat4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="beat4" target="beat5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="beat5" target="pillarsIntro">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PILLARS INTRO TO EACH PILLAR -->
+        <mxCell id="e7a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pillarsIntro" target="pillar1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pillarsIntro" target="pillar2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pillarsIntro" target="pillar3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7d" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pillarsIntro" target="pillar4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PILLARS TO RECAP LABEL -->
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pillar3" target="recapLabel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- RECAP LABEL TO FIRST RECAP CARD -->
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="recapLabel" target="recap1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- RECAP CHAIN -->
+        <mxCell id="e10" style="edgeStyle=none;rounded=0;html=1;endArrow=block;fontFamily=Helvetica;" edge="1" parent="1" source="recap1" target="recap2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=none;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="recap2" target="recap3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=none;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="recap3" target="recap4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- RECAP TO CREDIT -->
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="recap2" target="credit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
