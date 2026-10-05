@@ -105,3 +105,4 @@ Plain-language explanations with editable draw.io diagrams, at https://rakeshkri
 
 - **HTTP Request Lifecycle** (https://rakeshkrishnan.com/concepts/http-request-lifecycle/): how a browser turns a URL into a rendered page: DNS, TCP, TLS, HTTP and rendering.
 - **What is Object-Oriented Programming?** (https://rakeshkrishnan.com/concepts/what-is-oop/): classes, objects, properties, methods and the four pillars.
+- **AWS Cheatsheet** (https://rakeshkrishnan.com/concepts/aws/): a one-page visual reference to the essential AWS services, grouped by job: global infrastructure, security and IAM, compute, storage, databases, networking, integration, monitoring, DevOps and IaC, data and AI/ML, pricing, Well-Architected pillars, and common mistakes.
