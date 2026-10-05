@@ -20,6 +20,7 @@ Core skills: GitHub Enterprise (EMU), GitHub Actions, GitHub Advanced Security, 
 ## Portfolio
 - [Projects](https://rakeshkrishnan.com/projects/): Personal tools, automations and experiments.
 - [Concepts & Diagrams](https://rakeshkrishnan.com/concepts/): Plain-language explanations with editable draw.io diagrams.
+- [AWS Cheatsheet](https://rakeshkrishnan.com/concepts/aws/): One-page visual reference to the essential AWS services, grouped by job.
 - [GitHub](https://github.com/GH-user-001): Source code, including this site.
 
 ## Optional
