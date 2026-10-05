@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Plain-Markdown profile for AI agents: /llms.txt (index) and /llms-full.txt (full profile)
+Sitemap: https://rakeshkrishnan.com/sitemap.xml
