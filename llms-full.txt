@@ -1,0 +1,51 @@
+# Rakesh Krishnan
+
+> DevSecOps and AI-assisted engineering. Designs enterprise solutions with globally distributed teams: legacy code transformation, DevSecOps transitions (on-prem and cloud), and AI-assisted developer tooling.
+
+Website: https://rakeshkrishnan.com/
+GitHub: https://github.com/GH-user-001
+Medium: https://medium.com/@rakeshkrishnan01
+Email: Rakeshkrishnan01@gmail.com
+
+## About
+
+Rakesh designs enterprise solutions with distributed development teams around the world. The work centers on legacy code transformation, DevSecOps transitions across on-prem and cloud environments, and AI-assisted developer tooling.
+
+## What I'm working on
+
+- **Enterprise solution design:** architecting systems with globally distributed dev teams.
+- **Legacy modernization:** transforming aging codebases into maintainable, cloud-ready platforms.
+- **DevSecOps transitions:** building secure CI/CD pipelines across on-prem and cloud environments.
+- **AI-assisted coding:** evaluating and integrating AI tooling into enterprise developer workflows.
+- Researching AI and math on the side.
+
+## Tech stack
+
+| Area | Technologies |
+| --- | --- |
+| Languages & frameworks | C#, .NET, Python, TypeScript, JavaScript, React, PowerShell, HTML, CSS |
+| Cloud & DevSecOps | AWS, Azure, Terraform, GitHub Actions, Git, YAML, Splunk |
+| Data | Microsoft SQL Server, MySQL, SQLite, Power BI |
+| Design & creative | Blender, Adobe Photoshop, Canva |
+
+## Projects
+
+Page: https://rakeshkrishnan.com/projects/
+
+### Repo Cleanup Automation
+Category: DevSecOps, automation.
+A GitHub Actions workflow, triggered manually, that lists the account's repositories through the GitHub REST API, filters for those with no updates in 3+ months using PowerShell, and processes them to keep the account tidy. Source: https://github.com/GH-user-001/GH-user-001/blob/main/.github/workflows/cleanup.yml
+
+### This website
+A static multi-page site (plain HTML and CSS, no build step) deployed to GitHub Pages by a GitHub Actions workflow on every push to main, with CodeQL scanning of the workflows. Source: https://github.com/GH-user-001/GH-user-001
+
+## Concepts & diagrams
+
+Page: https://rakeshkrishnan.com/concepts/ . A growing set of plain-language explanations, each with an editable draw.io diagram.
+
+- **HTTP Request Lifecycle** (https://rakeshkrishnan.com/concepts/http-request-lifecycle/): how a browser turns a URL into a rendered page: DNS, TCP, TLS, HTTP, and rendering. Covers the mental model, how it works, trade-offs and common mistakes, and sources.
+- **What is Object-Oriented Programming?** (https://rakeshkrishnan.com/concepts/what-is-oop/): classes, objects, properties, methods, and the four pillars: encapsulation, abstraction, inheritance, polymorphism.
+
+## Contact
+
+Email Rakeshkrishnan01@gmail.com, or read articles on Medium (https://medium.com/@rakeshkrishnan01).

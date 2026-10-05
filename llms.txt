@@ -1,0 +1,18 @@
+# Rakesh Krishnan
+
+> DevSecOps and AI-assisted engineering. Designs enterprise solutions with globally distributed teams: legacy code transformation, DevSecOps transitions (on-prem and cloud), and AI-assisted developer tooling.
+
+Core stack: C#/.NET, Python, TypeScript/JavaScript, React, PowerShell; AWS, Azure, Terraform, GitHub Actions; SQL Server, MySQL, SQLite, Power BI.
+
+## Portfolio
+- [About me](https://rakeshkrishnan.com/): Profile, current focus areas, and full tech stack table.
+- [Concepts & Diagrams](https://rakeshkrishnan.com/concepts/): Plain-language explanations with editable draw.io diagrams (HTTP request lifecycle, object-oriented programming).
+- [Projects](https://rakeshkrishnan.com/projects/): Personal tools, automations, and experiments.
+
+## Contact and profiles
+- [GitHub](https://github.com/GH-user-001): Source code, including this site.
+- [Medium blog](https://medium.com/@rakeshkrishnan01): Articles.
+- [Email](mailto:Rakeshkrishnan01@gmail.com): Direct contact.
+
+## Optional
+- [Full context in one file](https://rakeshkrishnan.com/llms-full.txt): Everything above in a single Markdown document.
