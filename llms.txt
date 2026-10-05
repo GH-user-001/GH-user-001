@@ -1,0 +1,26 @@
+# Rakesh Krishnan
+
+> Senior DevSecOps & Release Engineer and AI Platform Engineer with 20 years in enterprise software (energy utilities and banking). Builds enterprise CI/CD platforms on GitHub Enterprise, Azure DevOps, AWS and Azure; leads enterprise AI coding-assistant adoption (GitHub Copilot, Claude Code); modernizes legacy mainframe systems. Based in San Diego, CA; open to relocation.
+
+Highlights:
+- Led the enterprise-wide rollout of AI coding assistants to 200+ developers, with a 50% productivity gain, usage policies, LLM model selection and spend governance.
+- Consolidating an 800+ repository estate across 4 orgs onto GitHub Enterprise; standardizing reusable CI/CD templates across 1,200+ repositories.
+- Built a self-service DevOps provisioning portal (React, .NET, Azure SQL) that cut developer onboarding overhead by 40%.
+- Manages monthly production releases of 10-15 projects, with ServiceNow change automation and CAB facilitation.
+- Earlier at Bank of America (via Infosys): replaced COBOL batch loads with a mainframe ETL that saved $300K-$400K per application per year.
+
+Core skills: GitHub Enterprise (EMU), GitHub Actions, GitHub Advanced Security, GitHub Copilot, Claude Code, MCP, Azure DevOps, AWS, Azure, Terraform, Docker, CheckMarx (SAST), ServiceNow, Python, C#, .NET, React, JavaScript, PowerShell, Bash, SQL, Power BI, DB2, COBOL.
+
+## Profile
+- [Full profile in one file](https://rakeshkrishnan.com/llms-full.txt): Experience, skills matrix, accomplishments, certifications and education.
+- [About me](https://rakeshkrishnan.com/): Profile, focus areas and tech stack.
+- [LinkedIn](https://www.linkedin.com/in/rakesh17684/): Professional profile.
+- [Email](mailto:Rakeshkrishnan01@gmail.com): Direct contact.
+
+## Portfolio
+- [Projects](https://rakeshkrishnan.com/projects/): Personal tools, automations and experiments.
+- [Concepts & Diagrams](https://rakeshkrishnan.com/concepts/): Plain-language explanations with editable draw.io diagrams.
+- [GitHub](https://github.com/GH-user-001): Source code, including this site.
+
+## Optional
+- [Medium blog](https://medium.com/@rakeshkrishnan01): Articles.

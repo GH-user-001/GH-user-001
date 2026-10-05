@@ -1,0 +1,107 @@
+# Rakesh Krishnan
+
+> Senior DevSecOps & Release Engineer and AI Platform Engineer with 20 years in enterprise software (energy utilities and banking). Builds enterprise CI/CD platforms on GitHub Enterprise, Azure DevOps, AWS and Azure; leads enterprise AI coding-assistant adoption (GitHub Copilot, Claude Code); modernizes legacy mainframe systems.
+
+- Location: California, USA
+- Email: Rakeshkrishnan01@gmail.com
+- LinkedIn: https://www.linkedin.com/in/rakesh17684/
+- Website: https://rakeshkrishnan.com/
+- GitHub: https://github.com/GH-user-001
+- Medium: https://medium.com/@rakeshkrishnan01
+
+## Summary
+
+Rakesh designs, builds and runs enterprise CI/CD platforms and release processes for the energy and banking sectors. He has led transitions to cloud-based Azure DevOps and GitHub Enterprise platforms with infrastructure as code, and the enterprise rollout of AI coding assistants such as GitHub Copilot, Claude Code and Amazon Q Developer / Kiro. He orchestrates end-to-end software releases and complex production cutovers, and has modernized legacy mainframe systems for both sectors. He combines DevSecOps and platform engineering with Agile delivery (CSPO, PSM), information security and cross-functional leadership.
+
+Roles : Senior DevSecOps Engineer, Platform Engineer, AI Platform / AI-native Engineer, Developer Experience (DevEx) Engineer, Release Engineer / Release Manager, GitHub Enterprise or Azure DevOps administrator and architect, Cloud DevOps Engineer.
+
+## Key accomplishments
+
+- **AI coding-assistant enablement:** led the enterprise-wide rollout of AI coding assistants (GitHub Copilot, later Claude Code) to 300+ developers, raising developer productivity by 50%. Wrote usage policies, licensing guidance, LLM model selection criteria and training, and oriented developers and testers through hands-on code and unit-test generation.
+- **AI governance and spend:** built usage telemetry dashboards, custom metrics and financial guardrails for enterprise AI tool consumption, keeping spend within a $7.6K/month budget. Established Responsible AI guidelines covering licensing data, secure prompt boundaries and token governance.
+- **Internal developer platform:** architected and delivered a self-service portal (React, .NET Framework, Azure SQL, AWS Services) for ticketless provisioning of Azure DevOps and GitHub resources, cutting developer onboarding overhead by 40% and onboarding time from days to minutes.
+- **GitHub Enterprise consolidation:** migrating applications from Azure DevOps, GitLab and other SCM platforms to GitHub Enterprise, across an 800+ repository estate in 4 organizations.
+- **CI/CD standardization and cost:** analyzed 696 workflow files, identifying $26K+/year of compute waste, and standardized reusable CI/CD templates across 1,200+ repositories.
+- **Release management:** manages monthly production releases of 10-15 projects; designed an automated organization-wide cutover and communication plan that tracks tasks and sends email.
+- **Legacy modernization:** migrated a critical mainframe application to SAP within a DevSecOps framework (energy), and replaced a COBOL-based load system with a mainframe batch ETL saving $300K-$400K per application per year (banking).
+- **Banking cost reductions:** converted external DB2 stored procedures to native ($50K/month saved) and redesigned a DB2 load with multi-row insert ($150K/year saved).
+
+## Skills matrix
+
+| Area | Skills |
+| --- | --- |
+| AI-native engineering | GitHub Copilot, Claude Code CLI, Amazon Q Developer / Kiro, agentic workflows, AI orchestration, Model Context Protocol (MCP), LLM model selection, Responsible AI and AI governance |
+| DevSecOps and CI/CD | GitHub Enterprise (EMU), GitHub Actions, GitHub runners, Azure DevOps, Azure Pipelines, Azure agent pools, GitLab migration, Git branching strategies |
+| Security | GitHub Advanced Security, CheckMarx (SAST), secrets management, secure API handling |
+| Cloud and infrastructure | AWS (EC2, RDS, S3, Lambda, EKS), Microsoft Azure, Terraform, Docker, RHEL Linux and Windows server maintenance |
+| Release and change management | Release planning, production cutovers, CAB facilitation, ServiceNow change automation, environment management, release metrics |
+| Languages and frameworks | Python, C#, .NET Framework, React, JavaScript, PowerShell, Bash, SQL, HTML, CSS |
+| Data and reporting | Azure SQL, Microsoft SQL Server, MySQL, SQLite, DB2, Power BI, Excel macros |
+| Mainframe | COBOL, CICS, DB2, JCL, REXX, Easytrieve, MQ, VSAM, CA-7, ChangeMan, CA Endevor |
+| Methods and tools | Agile/Scrum, Waterfall, Scrum Master, Product Owner, Azure Boards, Rally, MS Visio |
+
+## Experience
+
+### Senior DevSecOps & Release Engineer / AI Platform Engineer
+ITBMS / Capgemini, client San Diego Gas & Electric (SDG&E). San Diego, CA. December 2016 to present.
+
+- Implements DevSecOps tooling (Azure DevOps and GitHub) across the company: repositories, pipelines, secrets management, centralized monitoring and reporting, SAST integration, Docker containers and Terraform. Current assignment: migrating applications from Azure DevOps, GitLab and other SCM platforms to GitHub Enterprise.
+- Leads the adoption of AI-native tools (GitHub Copilot, Claude Code) in everyday developer workflows, moving teams toward agentic, AI-assisted development.
+- Integrates ServiceNow with CI/CD pipelines to automate change management for production deployments, and creates Azure Boards work items from ServiceNow tickets.
+- Designs and runs on-prem and hosted Azure agent pools and GitHub runners, including Windows and RHEL server patching and end-of-life checks; moving from on-prem agents to Azure-hosted private pools.
+- Architected the self-service provisioning portal for Azure DevOps and GitHub (.NET, Azure SQL, React).
+- Built Power BI telemetry on the speed, quality and adoption of AI-assisted code generation across portfolios.
+- Release engineering: release planning, code merges, staging and pre-production deployments, monthly production release meetings, cutovers, hotfixes, stakeholder communication, post-deployment metrics and release scores.
+- Contributed to migrating a critical mainframe application to SAP: connectivity testing, release planning and cutover.
+
+### Technology Lead & Scrum Master
+Infosys, client Bank of America. Atlanta, GA. June 2011 to December 2016.
+
+- Led a team of 8-10 engineers; served as scrum master using Rally and Mingle.
+- Designed a mainframe batch ETL to replace a COBOL-based load system, cutting MIPS and saving $300K-$400K per application per year.
+- Built a real-time mobile check deposit duplicate-fraud detection system with MQ Listener and DB2, the only application in the bank using MQ Listener with DB2.
+- Converted external DB2 stored procedures to native ($50K/month saved); designed a multi-row-insert DB2 split-and-load ($150K/year saved).
+- Enhanced credit card payment and retail lockbox processing.
+
+### Technology Analyst
+Infosys, client Bank of America. Bangalore, India. September 2009 to June 2011.
+
+- Designed an automated purge for DB2 data past retention without taking data offline (24x7x365 availability).
+- Built legacy data migration processes; worked on the MBNA conversion for credit card access checks and payments after Bank of America acquired MBNA.
+
+### Software Engineer
+Infosys, client Bank of America. Bangalore, India. June 2006 to September 2009.
+
+- Automated the manual DB2 audit and health-tracking process.
+- First-level support for production abends; programming, unit testing, UAT and implementation for merger and acquisition projects.
+
+## Education
+
+Bachelor of Engineering, Electronics and Instrumentation. Anna University, Tamil Nadu, India. April 2006, first class with distinction.
+
+## Certifications
+
+- GitHub Copilot
+- Certified Scrum Product Owner (CSPO)
+- Professional Scrum Master (PSM)
+- IBM Certified DB2 Database Associate
+- IBM Blockchain Foundation Developer; IBM Blockchain Essentials
+- Power BI (LinkedIn Learning)
+
+## Languages
+
+English (full professional), Tamil, Malayalam, Hindi; elementary French and Mandarin.
+
+## Projects
+
+- **Repo Cleanup Automation:** a manually triggered GitHub Actions workflow that lists the account's repositories through the GitHub REST API and uses PowerShell to find those with no updates in 3+ months. Source: https://github.com/GH-user-001/GH-user-001/blob/main/.github/workflows/cleanup.yml
+- **Memory Snake** (May 2025): a web-based memorization game built on Snake mechanics.
+- **This website:** a static multi-page site deployed to GitHub Pages by GitHub Actions on every push to main, with CodeQL scanning. Source: https://github.com/GH-user-001/GH-user-001
+- ** Building AI Powered and Assited GitHub Organisation following End to End AI-DLC workflows
+
+## Concepts & diagrams
+
+Plain-language explanations with editable draw.io diagrams, at https://rakeshkrishnan.com/concepts/ :
+
+- **HTTP Request Lifecycle** (https://rakeshkrishnan.com/concepts/http-request-lifecycle/): how a browser turns a URL into a rendered page: DNS, TCP, TLS, HTTP and rendering.
+- **What is Object-Oriented Programming?** (https://rakeshkrishnan.com/concepts/what-is-oop/): classes, objects, properties, methods and the four pillars.
