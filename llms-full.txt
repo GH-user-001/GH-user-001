@@ -95,6 +95,7 @@ English (full professional), Tamil, Malayalam, Hindi; elementary French and Mand
 ## Projects
 
 - **Repo Cleanup Automation:** a manually triggered GitHub Actions workflow that lists the account's repositories through the GitHub REST API and uses PowerShell to find those with no updates in 3+ months. Source: https://github.com/GH-user-001/GH-user-001/blob/main/.github/workflows/cleanup.yml
+- **Little Voices:** a static web app where tapping a picture plays its name spoken by an ElevenLabs text-to-speech voice. Source: https://github.com/GH-user-001/Little-Voices
 - **Memory Snake** (May 2025): a web-based memorization game built on Snake mechanics.
 - **This website:** a static multi-page site deployed to GitHub Pages by GitHub Actions on every push to main, with CodeQL scanning. Source: https://github.com/GH-user-001/GH-user-001
 - ** Building AI Powered and Assited GitHub Organisation following End to End AI-DLC workflows
@@ -103,6 +104,4 @@ English (full professional), Tamil, Malayalam, Hindi; elementary French and Mand
 
 Plain-language explanations with editable draw.io diagrams, at https://rakeshkrishnan.com/concepts/ :
 
-- **HTTP Request Lifecycle** (https://rakeshkrishnan.com/concepts/http-request-lifecycle/): how a browser turns a URL into a rendered page: DNS, TCP, TLS, HTTP and rendering.
-- **What is Object-Oriented Programming?** (https://rakeshkrishnan.com/concepts/what-is-oop/): classes, objects, properties, methods and the four pillars.
 - **AWS Cheatsheet** (https://rakeshkrishnan.com/concepts/aws/): a one-page visual reference to the essential AWS services, grouped by job: global infrastructure, security and IAM, compute, storage, databases, networking, integration, monitoring, DevOps and IaC, data and AI/ML, pricing, Well-Architected pillars, and common mistakes.
