@@ -94,7 +94,6 @@ English (full professional), Tamil, Malayalam, Hindi; elementary French and Mand
 
 ## Projects
 
-- **Repo Cleanup Automation:** a manually triggered GitHub Actions workflow that lists the account's repositories through the GitHub REST API and uses PowerShell to find those with no updates in 3+ months. Source: https://github.com/GH-user-001/GH-user-001/blob/main/.github/workflows/cleanup.yml
 - **Little Voices:** a static web app where tapping a picture plays its name spoken by an ElevenLabs text-to-speech voice. Source: https://github.com/GH-user-001/Little-Voices
 - **Memory Snake** (May 2025): a web-based memorization game built on Snake mechanics.
 - **This website:** a static multi-page site deployed to GitHub Pages by GitHub Actions on every push to main, with CodeQL scanning. Source: https://github.com/GH-user-001/GH-user-001
