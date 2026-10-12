@@ -1,5 +1,5 @@
 (function () {
-  var THEMES = [["light", "Light"], ["dark", "Dark"], ["neon", "Neon"]];
+  var THEMES = [["light", "Light"], ["dark", "Dark"], ["neon", "Cyberphunk Neon"]];
   var root = document.documentElement;
 
   function saved() {
@@ -20,8 +20,6 @@
   root.setAttribute("data-theme", current);
 
   document.addEventListener("DOMContentLoaded", function () {
-    var bar = document.querySelector(".site-nav .wrap");
-    if (!bar) return;
     var group = document.createElement("div");
     group.className = "theme-switch";
     group.setAttribute("role", "group");
@@ -34,7 +32,7 @@
       b.addEventListener("click", function () { apply(t[0]); });
       group.appendChild(b);
     });
-    bar.appendChild(group);
+    document.body.appendChild(group);
     apply(root.getAttribute("data-theme"));
   });
 })();
