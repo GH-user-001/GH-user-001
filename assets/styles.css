@@ -5,7 +5,41 @@
   --soft: #f6f6f4;
   --border: #d9d9d4;
   --link: #245b45;
+  --heading: #1e1e1e;
+  --node-border: #8ea99d;
+  --node-bg: #fff;
+  --frame-bg: #fbf6ec;
+  --glow: none;
   color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --text: #e4e4df;
+  --muted: #a0a099;
+  --background: #16181a;
+  --soft: #202325;
+  --border: #34383a;
+  --link: #7fd1a8;
+  --heading: #f2f2ee;
+  --node-border: #4d6a5d;
+  --node-bg: #202325;
+  --frame-bg: #202325;
+  color-scheme: dark;
+}
+
+:root[data-theme="neon"] {
+  --text: #d6f8ff;
+  --muted: #8a7fb8;
+  --background: #0a0612;
+  --soft: #140c24;
+  --border: #3a1f66;
+  --link: #00f0ff;
+  --heading: #ff2bd6;
+  --node-border: #00f0ff;
+  --node-bg: #140c24;
+  --frame-bg: #140c24;
+  --glow: 0 0 8px rgba(255, 43, 214, 0.65), 0 0 22px rgba(255, 43, 214, 0.35);
+  color-scheme: dark;
 }
 
 * {
@@ -38,7 +72,7 @@ h2,
 h3,
 h4 {
   margin-top: 0;
-  color: #1e1e1e;
+  color: var(--heading);
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
   line-height: 1.25;
@@ -179,9 +213,9 @@ main {
 
 .node {
   min-width: 105px;
-  border: 1px solid #8ea99d;
+  border: 1px solid var(--node-border);
   padding: 11px 13px;
-  background: #fff;
+  background: var(--node-bg);
   text-align: center;
 }
 
@@ -331,7 +365,8 @@ footer p {
 
 .site-nav .wrap {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   align-items: center;
 }
 
@@ -368,7 +403,7 @@ footer p {
   width: 100%;
   min-height: 1200px;
   border: 0;
-  background: #fbf6ec;
+  background: var(--frame-bg);
 }
 
 .source-links {
@@ -394,4 +429,59 @@ footer p {
     display: block;
     margin-top: 8px;
   }
+}
+
+/* Theme switcher */
+.theme-switch {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.theme-switch button {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 12px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.theme-switch button:hover { color: var(--text); }
+
+.theme-switch button[aria-pressed="true"] {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+/* Cyberpunk neon extras */
+:root[data-theme="neon"] h1,
+:root[data-theme="neon"] h2 {
+  text-shadow: var(--glow);
+}
+
+:root[data-theme="neon"] a {
+  text-shadow: 0 0 6px rgba(0, 240, 255, 0.5);
+}
+
+:root[data-theme="neon"] .card,
+:root[data-theme="neon"] .node,
+:root[data-theme="neon"] .toc {
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.25), inset 0 0 12px rgba(255, 43, 214, 0.08);
+}
+
+:root[data-theme="neon"] .card:hover {
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.6);
+}
+
+:root[data-theme="neon"] .site-nav,
+:root[data-theme="neon"] .site-header,
+:root[data-theme="neon"] .concept-title {
+  border-bottom-color: #ff2bd6;
+}
+
+:root[data-theme="neon"] img {
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.45);
 }
