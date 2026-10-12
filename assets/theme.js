@@ -6,7 +6,17 @@
     try { return localStorage.getItem("theme"); } catch (e) { return null; }
   }
 
+  function loadNeonFonts() {
+    if (document.getElementById("neon-fonts")) return;
+    var link = document.createElement("link");
+    link.id = "neon-fonts";
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&family=Orbitron:wght@500&display=swap";
+    document.head.appendChild(link);
+  }
+
   function apply(theme) {
+    if (theme === "neon") loadNeonFonts();
     root.setAttribute("data-theme", theme);
     try { localStorage.setItem("theme", theme); } catch (e) {}
     var buttons = document.querySelectorAll(".theme-switch button");
@@ -17,6 +27,7 @@
 
   var current = saved();
   if (!THEMES.some(function (t) { return t[0] === current; })) current = "light";
+  if (current === "neon") loadNeonFonts();
   root.setAttribute("data-theme", current);
 
   document.addEventListener("DOMContentLoaded", function () {
